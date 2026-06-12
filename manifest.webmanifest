@@ -1,0 +1,14 @@
+{
+  "name": "Vacances",
+  "short_name": "Vacances",
+  "description": "Prévision et répartition du budget des vacances",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#fafafa",
+  "icons": [
+    { "src": "apple-touch-icon.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" }
+  ]
+}
