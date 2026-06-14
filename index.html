@@ -172,7 +172,7 @@
   .exp-bubble:hover{color:var(--color-primary)}
   .exp-bubble.on{color:var(--color-primary)}
   .exp-bubble.on svg{fill:currentColor}
-  .exp-comment{display:flex;align-items:flex-start;gap:7px;padding:0 2px 9px 86px;font-size:12px;color:var(--color-text-secondary)}
+  .exp-comment{display:flex;align-items:flex-start;gap:7px;padding:0 2px 9px 86px;font-size:11px;color:var(--color-text-secondary)}
   .exp-comment-body{flex:1;min-width:0;word-break:break-word}
   .exp-comment-body a{color:var(--color-primary);text-decoration:underline}
   .exp-comment-body ul,.exp-comment-body ol{margin:0;padding-left:18px}
@@ -375,8 +375,8 @@
   .exp-item.drop-before{box-shadow:inset 0 2px 0 0 var(--color-primary)}
   .exp-item.drop-after{box-shadow:inset 0 -2px 0 0 var(--color-primary)}
   .exp-row{display:flex;align-items:center;gap:10px;padding:9px 2px}
-  .exp-main{flex:1;min-width:0;cursor:pointer}
-  .exp-l1{font-size:13px;font-weight:600;color:var(--color-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px}
+  .exp-main{flex:1;min-width:0}
+  .exp-l1{font-size:14px;font-weight:600;color:var(--color-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px}
   .exp-l2{font-size:11px;color:var(--color-text-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
   .exp-noname{color:var(--color-text-soft);font-weight:400;font-style:italic}
   .exp-r{text-align:right;flex:none;cursor:pointer}
@@ -779,8 +779,8 @@
       +'<span class="drag-handle" title="Glisser pour réordonner">⠿</span>'
       +'<button class="exp-resa'+(e.reserved?" on":"")+'" data-resa="'+e.id+'" title="'+(e.reserved?"Réservé":"À réserver")+'">'+(e.reserved?CHK:'')+'</button>'
       +'<button class="exp-paid'+(e.paid?" on":"")+'" data-paid="'+e.id+'" title="'+(e.paid?"Payé":"À payer")+'">'+(e.paid?"€":"")+'</button>'
-      +'<div class="exp-main" data-edit="'+e.id+'"><div class="exp-l1">'+lab+'</div><div class="exp-l2">'+repText(e)+'</div></div>'
-      +'<div class="exp-r" data-edit="'+e.id+'"><div class="exp-r1 num-f">'+fmt(e.amount)+'</div><div class="exp-r2">'+partText(e)+'</div></div>'
+      +'<div class="exp-main"><div class="exp-l1">'+lab+'</div><div class="exp-l2">'+repText(e)+'</div></div>'
+      +'<div class="exp-r"><div class="exp-r1 num-f">'+fmt(e.amount)+'</div><div class="exp-r2">'+partText(e)+'</div></div>'
       +'<button class="exp-bubble'+(hasC?" on":"")+'" data-cmt="'+e.id+'" title="Commentaire">'+BUBBLE+'</button>'
       +'<button class="exp-edit" data-edit="'+e.id+'" title="Modifier">'+PENCIL+'</button>'
       +'</div>'
