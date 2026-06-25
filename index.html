@@ -47,6 +47,9 @@
   .kebab-wrap{position:relative}
   .icon-btn{width:38px;height:38px;border:1px solid var(--color-border);background:var(--color-surface);border-radius:var(--radius-md);cursor:pointer;color:var(--color-text-light);font-size:20px;display:inline-flex;align-items:center;justify-content:center;line-height:1}
   .icon-btn:hover{border-color:var(--color-primary);color:var(--color-text)}
+  #notes-btn{color:var(--color-primary)}
+  #notes-btn.has-note{background:var(--color-primary);border-color:var(--color-primary);color:#fff}
+  #notes-btn.has-note:hover{background:var(--color-primary-dark);border-color:var(--color-primary-dark);color:#fff}
   #notes-btn .notes-ico{display:inline-flex;align-items:center}
   #notes-btn .notes-lbl{display:none}
   @media(min-width:641px){#notes-btn{width:auto;gap:7px;padding:0 14px;font-size:14px;font-weight:600}#notes-btn .notes-lbl{display:inline}}
@@ -577,7 +580,7 @@
       </div>
     </div>
     <div style="flex:1"></div>
-    <button id="notes-btn" class="icon-btn" title="Notes du voyage" aria-label="Notes du voyage" style="color:var(--color-primary)"><span class="notes-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h14v16H5zM9 9h6M9 13h6"/></svg></span><span class="notes-lbl">Notes</span></button>
+    <button id="notes-btn" class="icon-btn" title="Notes du voyage" aria-label="Notes du voyage"><span class="notes-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h14v16H5zM9 9h6M9 13h6"/></svg></span><span class="notes-lbl">Notes</span></button>
     <div class="kebab-wrap">
       <button id="kebab-btn" class="icon-btn" title="Actions" aria-label="Actions">⋮</button>
       <div id="kebab-menu" class="dropdown dropdown-right" hidden>
@@ -932,7 +935,7 @@
   var NOTE_FULL='<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" fill-rule="evenodd"><path d="M5 3h14a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm4 5.5a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2H9Zm0 4a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2H9Z"/></svg>';
   var NOTE_OUTLINE='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h14v16H5zM9 9h6M9 13h6"/></svg>';
   function notesEmpty(){var h=(typeof state.notes==="string"?state.notes:"");return h.replace(/<[^>]*>/g," ").replace(/&nbsp;/g," ").replace(/\s+/g,"").length===0;}
-  function renderNotesBtn(){var b=document.getElementById("notes-btn");if(!b)return;var full=!notesEmpty();var ic=b.querySelector(".notes-ico");if(ic)ic.innerHTML=full?NOTE_FULL:NOTE_OUTLINE;b.title=full?"Notes du voyage":"Notes du voyage (vide)";}
+  function renderNotesBtn(){var b=document.getElementById("notes-btn");if(!b)return;var full=!notesEmpty();var ic=b.querySelector(".notes-ico");if(ic)ic.innerHTML=full?NOTE_FULL:NOTE_OUTLINE;b.classList.toggle("has-note",full);b.title=full?"Notes du voyage":"Notes du voyage (vide)";}
   function openNotesModal(){
     modalCtx={type:"notes"};
     var html=(typeof state.notes==="string"?state.notes:"");
