@@ -1285,7 +1285,7 @@
     if((t=e.target.closest(".mx-cell"))&&t.dataset.period){var p=period(t.dataset.period),i=p.members.indexOf(t.dataset.person);if(i>=0)p.members.splice(i,1);else p.members.push(t.dataset.person);save();renderAll();return;}
     if((t=e.target.closest("[data-del]"))){var ed=expById(t.dataset.del),el=(ed&&ed.label||"").trim();if(!confirm("Supprimer la dépense"+(el?" « "+el+" »":"")+" ?"))return;state.expenses=state.expenses.filter(function(x){return x.id!==t.dataset.del;});save();renderExpenses();renderParts();return;}
     if((t=e.target.closest("[data-resa]"))){var rex=expById(t.dataset.resa);if(rex){rex.reserved=!rex.reserved;save();renderExpenses();}return;}
-    if((t=e.target.closest("[data-paid]"))){var pex=expById(t.dataset.paid);if(pex){pex.paid=!pex.paid;save();renderExpenses();}return;}
+    if((t=e.target.closest("[data-paid]"))){var pex=expById(t.dataset.paid);if(pex){pex.paid=!pex.paid;save();renderExpenses();renderParts();}return;}
     if((t=e.target.closest("[data-exptoggle]"))){var tex=expById(t.dataset.exptoggle);if(tex){tex.people=tex.people||[];var nm=t.dataset.name,ix=tex.people.indexOf(nm);if(ix>=0)tex.people.splice(ix,1);else tex.people.push(nm);save();renderExpenses();renderParts();}return;}
     if((t=e.target.closest("[data-pertoggle]"))){var rex=expById(t.dataset.pertoggle);if(rex){rex.periods=rex.periods||[];var pid=t.dataset.pid,pix=rex.periods.indexOf(pid);if(pix>=0)rex.periods.splice(pix,1);else rex.periods.push(pid);save();renderExpenses();renderParts();}return;}
     if((t=e.target.closest("[data-basisset]"))){var sex=expById(t.dataset.basisset);if(sex){sex.basis=t.dataset.val;save();renderExpenses();renderParts();}return;}
